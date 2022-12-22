@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+
+/* Start Variables */
+:root {
+    --Moderate-violet: hsl(263, 55%, 52%);
+    --Very--dark--grayish-blue: hsl(217, 19%, 35%);
+    --Very--dark--blackish-blue: hsl(219, 29%, 14%);
+    --White: hsl(0, 0%, 100%);
+    --Light-gray: hsl(0, 0%, 81%);
+    --Light--grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* End Variables */
+
+/* Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--Light--grayish-blue);
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    font-size: 0.8125rem;
+}
+
+/* End Global Rules */
+/* Start Main */
+main {
+    margin: 30px 30px 10px;
+    max-width: 1260px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(250px, 1fr));
+    gap: 20px;
+    grid-template-areas:
+        "part1 part1 part2 part3"
+        "part4 part5 part5 part3";
+}
+
+.part1 {
+    grid-area: part1;
+    background-color: var(--Moderate-violet);
+    background-image: url(images/bg-pattern-quotation.svg);
+    background-repeat: no-repeat;
+    background-position: top 0 right 80px;
+}
+
+.part2 {
+    grid-area: part2;
+    background-color: hsl(219deg 29% 14% / 69%);
+}
+
+.part3 {
+    grid-area: part3;
+    background-color: var(--White);
+}
+
+.part4 {
+    grid-area: part4;
+    background-color: var(--White);
+}
+
+.part5 {
+    grid-area: part5;
+    background-color: var(--Very--dark--blackish-blue);
+}
+article {
+    
+    position: relative;
+    overflow: hidden;
+}
+.part1::before,
+.part2::before,
+.part3::before,
+.part4::before,
+.part5::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(255 255 255 / 0.2);
+    width: 0;
+    height: 0;
+    opacity: 0;
+    border-radius: 15px;
+    /* z-index: -1; */
+}
+.part3::before,
+.part4::before {
+    background-color: hsl(263deg 55% 52% / 20%);
+}
+.part1:hover::before,
+.part2:hover::before,
+.part3:hover::before,
+.part4:hover::before,
+.part5:hover::before{
+    animation: flash 1s;
+}
+.intro,
+.info,
+blockquote {
+    position: relative;
+}
+.part1,
+.part2,
+.part5 {
+    color: var(--White);
+}
+
+article {
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.intro {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.intro img {
+    width: 36px;
+    height: 36px;
+    margin-right: 15px;
+    border-radius: 50%;
+    border: 1px solid white;
+}
+
+.intro .info h1 {
+    font-weight: lighter;
+    font-size: 1.1em
+}
+
+.intro .info p {
+    opacity: .5;
+}
+
+article blockquote p:first-of-type {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+article blockquote p:last-of-type {
+    opacity: .7;
+    font-size: 1.2em;
+    line-height: 1.4;
+}
+
+@media (max-width: 1100px) {
+    main {
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
+        grid-template-areas:
+            "part1 part1 part3"
+            "part4 .     part3"
+            "part5 part5 part2";
+    }
+}
+@media (max-width: 850px) {
+    main {
+        grid-template-columns: repeat(2, minmax(250px, 1fr));
+        grid-template-areas:
+            "part1 part1"
+            "part2 part3"
+            "part4 part3"
+            "part5 part5"
+            ;
+    }
+}
+@media (max-width: 550px) {
+    main {
+        grid-template-columns: minmax(270px, 1fr);
+        grid-template-areas:
+            "part1"
+            "part2"
+            "part4"
+            "part5"
+            "part3";
+    }
+    .part1 {
+        background-position: top 0 right 20px;
+    }
+}
+/* End Main */
+@keyframes flash {
+    0%, 40% {
+        opacity: 1;
+    }
+    100% {
+        width: 200%;
+        height: 200%;
+    }
+}
