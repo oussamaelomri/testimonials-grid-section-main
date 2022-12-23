@@ -77,7 +77,7 @@ main {
     grid-area: part5;
     background-color: var(--Very--dark--blackish-blue);
 }
-article {
+figure {
     
     position: relative;
     overflow: hidden;
@@ -121,7 +121,7 @@ blockquote {
     color: var(--White);
 }
 
-article {
+figure {
     border-radius: 15px;
     padding: 30px;
 }
@@ -140,7 +140,7 @@ article {
     border: 1px solid white;
 }
 
-.intro .info h1 {
+.intro .info h2 {
     font-weight: lighter;
     font-size: 1.1em
 }
@@ -149,12 +149,12 @@ article {
     opacity: .5;
 }
 
-article blockquote p:first-of-type {
+figure blockquote p:first-of-type {
     font-size: 1.8em;
     margin-bottom: 20px;
 }
 
-article blockquote p:last-of-type {
+figure blockquote p:last-of-type {
     opacity: .7;
     font-size: 1.2em;
     line-height: 1.4;
